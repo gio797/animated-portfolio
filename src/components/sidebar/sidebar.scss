@@ -8,6 +8,7 @@
 
   .bg {
     position: fixed;
+    z-index: 999;
     top: 0;
     left: 0;
     bottom: 0;
@@ -31,6 +32,8 @@
   }
 
   button {
+    z-index: 999;
+
     display: flex;
     justify-content: center;
     align-items: center;
