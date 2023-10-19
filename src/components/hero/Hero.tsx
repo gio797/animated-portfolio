@@ -47,7 +47,7 @@ function Hero() {
           className="textContainer"
           variants={textVariants}
           initial="initial"
-          animate="animate"
+          whileInView="animate"
         >
           <motion.h2 variants={textVariants}>HARVEY TYLER</motion.h2>
           <motion.h1 variants={textVariants}>
