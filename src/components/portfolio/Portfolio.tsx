@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "./portfolio.scss";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 type Props = {};
 
@@ -32,7 +32,31 @@ const items = [
 ];
 
 function SingleItem({ item }) {
-  return <section>{item.title}</section>;
+  const ref = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    // offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
+
+  return (
+    <section>
+      <div className="container">
+        <div className="wrapper">
+          <div className="img-container" ref={ref}>
+            <img src={item.img} alt="" />
+          </div>
+          <motion.div className="text-container" style={{ y }}>
+            <h2>{item.title}</h2>
+            <p>{item.desc}</p>
+            <button>See Demo</button>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function Portfolio({}: Props) {
