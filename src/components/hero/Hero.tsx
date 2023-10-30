@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const textVariants = {
   initial: {
-    x: -500,
+    x: -400,
     opacity: 0,
   },
   animate: {

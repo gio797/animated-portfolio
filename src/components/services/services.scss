@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 .services {
   height: 100%;
   background: linear-gradient(180deg, #0c0c1d, #111132);
@@ -11,7 +13,14 @@
     align-self: flex-end;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 20px;
+
+    @include mobile {
+      align-self: center;
+      text-align: center;
+      flex-direction: column;
+    }
 
     p {
       font-weight: 200;
@@ -24,6 +33,10 @@
       width: 500px;
       border: none;
       border-top: 0.5px solid gray;
+
+      @include mobile {
+        width: 300px;
+      }
     }
   }
 
@@ -32,22 +45,42 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    @include mobile {
+      width: 100%;
+    }
 
     .title {
       display: flex;
       align-items: center;
       gap: 15px;
 
+      @include mobile {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+
       img {
         width: 300px;
         height: 100px;
         border-radius: 50px;
         object-fit: cover;
+
+        @include mobile {
+          width: 200px;
+          height: 50px;
+        }
       }
 
       h1 {
         font-size: 96px;
         font-weight: 100;
+
+        @include mobile {
+          font-size: 36px;
+        }
       }
 
       button {
@@ -58,6 +91,12 @@
         border: none;
         font-size: 24px;
         cursor: pointer;
+
+        @include mobile {
+          font-size: 16px;
+          width: 150px;
+          height: 50px;
+        }
       }
     }
   }
@@ -68,6 +107,11 @@
     max-width: 1366px;
     margin: auto;
 
+    @include mobile {
+      flex-direction: column;
+      width: 100%;
+    }
+
     .box {
       padding: 40px;
       border: 0.5px solid gray;
@@ -76,11 +120,31 @@
       justify-content: space-between;
       gap: 20px;
 
+      @include mobile {
+        border: none;
+        align-items: center;
+        padding: 10px;
+      }
+
+      p {
+        @include mobile {
+          display: none;
+        }
+      }
+
       button {
         padding: 10px;
         background-color: orange;
         border: none;
         cursor: pointer;
+
+        @include mobile {
+          background-color: transparent;
+          border: 1px solid orange;
+          border-radius: 5px;
+          color: orange;
+          width: 50%;
+        }
       }
     }
   }
